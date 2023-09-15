@@ -1,0 +1,48 @@
+{
+  "name": "react-use-debug-hooks",
+  "version": "1.0.0",
+  "description": "A type-safe React hook for debugging purposes that wraps around the useEffect hook, which returns the dependencies that changed on each iteration of the effect within the console.",
+  "repository": "DarkAng3L/react-use-debug-hooks",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc --p ./tsconfig.build.json",
+    "build:cleanup": "rimraf ./dist",
+    "build": "npm run build:cleanup && npm run tsc",
+    "publish": "npm publish"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "keywords": [
+    "react",
+    "debug",
+    "info",
+    "hook",
+    "react-hook",
+    "rerender",
+    "rerender count",
+    "useEffectDebug",
+    "useEffect",
+    "what",
+    "dependencies",
+    "deps",
+    "prop",
+    "changed"
+  ],
+  "author": "Mihai Chiritescu",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.8 || ^17 || ^18"
+  },
+  "devDependencies": {
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/lodash": "^4.14.198",
+    "@types/react": "^18.2.21",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.2.2"
+  }
+}
