@@ -5,7 +5,7 @@ import isEmpty from 'lodash/isEmpty';
 import cloneDeep from 'lodash/cloneDeep';
 
 interface DebugInfo {
-  count: number;
+  renderCount: number;
   changedProps: ChangedProps;
   timeSinceLastRender: number;
   lastRenderTimestamp: number;
@@ -15,13 +15,14 @@ const useDebugInfo = (
   componentName: string,
   props: Readonly<Record<string, unknown>>,
   logOnlyWhenPropsChange?: boolean,
-): DebugInfo => {
-  const count = useRenderCount();
+) => {
+  const componentDisplayName = `<${componentName} />`;
+  const renderCount = useRenderCount();
   const changedProps = useDebugPropChanges(props);
   const lastRenderTimestamp = useRef<number>(Date.now());
 
   const info: DebugInfo = {
-    count,
+    renderCount,
     changedProps,
     timeSinceLastRender: Date.now() - lastRenderTimestamp.current,
     lastRenderTimestamp: lastRenderTimestamp.current,
@@ -29,22 +30,20 @@ const useDebugInfo = (
 
   useEffect(() => {
     lastRenderTimestamp.current = Date.now();
-    const propsChanged = !isEmpty(info.changedProps);
+    const propsHaveChanged = !isEmpty(info.changedProps);
 
-    if ((!logOnlyWhenPropsChange || propsChanged)) {
-      console.log(`%c[debug-info] %c${componentName}`, 'color: orange', `color: ${propsChanged ? 'orange' : 'initial'}`, info);
+    if ((!logOnlyWhenPropsChange || propsHaveChanged)) {
+      console.log(`%c[debug-info] %c${componentDisplayName} Re-rendered`, 'color: orange', `color: ${propsHaveChanged ? 'orange' : 'initial'}`, info);
     }
   });
 
   useEffect(() => {
-    console.log(`%c[debug-info] %c${componentName} Mounted`, 'color: orange', 'color: green', cloneDeep(props));
+    console.log(`%c[debug-info] %c${componentDisplayName} Mounted`, 'color: orange', 'color: green', cloneDeep(props));
 
     return () => {
-      console.log(`%c[debug-info] %c${componentName} Unmounted`, 'color: orange', 'color: pink');
+      console.log(`%c[debug-info] %c${componentDisplayName} Unmounted`, 'color: orange', 'color: pink');
     };
   }, [ componentName, props ]);
-
-  return info;
 };
 
 export default useDebugInfo;
