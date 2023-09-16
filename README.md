@@ -1,3 +1,10 @@
+[![NPM](https://img.shields.io/npm/v/react-use-debug-hooks.svg)](https://www.npmjs.com/package/react-use-debug-hooks)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Badges](https://badgen.net/npm/license/react-use-debug-hooks)](https://www.npmjs.com/package/react-use-debug-hooks)
+[![Badges](https://badgen.net/npm/dependents/react-use-debug-hooks)](https://www.npmjs.com/package/react-use-debug-hooks?activeTab=dependents)
+[![Badges](https://badgen.net/npm/types/react-use-debug-hooks)](https://www.npmjs.com/package/react-use-debug-hooks)
+[![Badges](https://badgen.net/github/issues/DarkAng3L/react-use-debug-hooks)](https://github.com/DarkAng3L/react-use-debug-hooks/issues)
+
 <div align="center">
   <h1>
     <br />
