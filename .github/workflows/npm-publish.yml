@@ -1,7 +1,7 @@
 # This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
 # For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
 
-name: Node.js Package
+name: Node.js NPM Publish Package
 
 on:
   release:
@@ -20,7 +20,7 @@ jobs:
 #        with:
 #          version: 8
 #          run_install: false
-      - run: npm i pnpm
+      - run: npm i -g pnpm
       - run: pnpm i --frozen-lockfile
       - run: pnpm test
 
@@ -38,8 +38,8 @@ jobs:
 #        with:
 #          version: 8
 #          run_install: false
-      - run: npm i pnpm
+      - run: npm i -g pnpm
       - run: pnpm i --frozen-lockfile
       - run: pnpm release
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

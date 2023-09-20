@@ -1,6 +1,6 @@
 {
   "name": "react-use-debug-hooks",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A type-safe React hook for debugging purposes that wraps around the useEffect hook, which returns the dependencies that changed on each iteration of the effect within the console.",
   "repository": "DarkAng3L/react-use-debug-hooks",
   "bugs": {
@@ -8,15 +8,22 @@
   },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "vitest --root __tests__/",
     "tsc": "tsc --p ./tsconfig.build.json",
     "build:cleanup": "rimraf ./dist",
-    "build": "npm run build:cleanup && npm run tsc",
-    "release": "npm run build && npm publish"
+    "build": "pnpm run build:cleanup && pnpm run tsc",
+    "release-tag:commit": "pnpm run build && pnpm version patch && git push origin main && git push origin --tags",
+    "release": "pnpm run build && npm publish"
   },
   "engines": {
     "node": ">=14"
+  },
+  "publishConfig": {
+    "darkang3l:registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "react",
