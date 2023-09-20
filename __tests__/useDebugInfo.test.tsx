@@ -342,7 +342,6 @@ describe('useDebugInfo', () => {
       await user.click(screen.getByRole('button', { name: 'Increment All' }));
     });
 
-    checkConsoleLog('TestComponent', {});
     checkConsoleLog('TestComponent', {
       renderCount: 2,
       changedProps: {
@@ -351,10 +350,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf(),
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestComponent', {
-      string: '1',
-      number: 1,
     });
     checkConsoleLog('TestComponent useEffect ran');
 
@@ -365,7 +360,6 @@ describe('useDebugInfo', () => {
       await user.click(screen.getByRole('button', { name: 'Increment All' }));
     });
 
-    checkConsoleLog('TestComponent', {});
     checkConsoleLog('TestComponent', {
       renderCount: 3,
       changedProps: {
@@ -374,10 +368,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf() + renderTime * 2,
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestComponent', {
-      string: '2',
-      number: 2,
     });
     checkConsoleLog('TestComponent useEffect ran');
 
@@ -388,7 +378,6 @@ describe('useDebugInfo', () => {
       await user.click(screen.getByRole('button', { name: 'Increment All' }));
     });
 
-    checkConsoleLog('TestComponent', {});
     checkConsoleLog('TestComponent', {
       renderCount: 4,
       changedProps: {
@@ -397,10 +386,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf() + renderTime * 4,
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestComponent', {
-      string: '3',
-      number: 3,
     });
     checkConsoleLog('TestComponent useEffect ran');
 
@@ -411,7 +396,6 @@ describe('useDebugInfo', () => {
       await user.click(screen.getByRole('button', { name: 'Increment All' }));
     });
 
-    checkConsoleLog('TestComponent', {});
     checkConsoleLog('TestComponent', {
       renderCount: 5,
       changedProps: {
@@ -420,10 +404,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf() + renderTime * 6,
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestComponent', {
-      string: '4',
-      number: 4,
     });
     checkConsoleLog('TestComponent useEffect ran');
 
@@ -447,7 +427,6 @@ describe('useDebugInfo', () => {
       await user.click(screen.getByRole('button', { name: 'Increment All' }));
     });
 
-    checkConsoleLog('TestOnlyChangedPropsComponent', {});
     checkConsoleLog('TestOnlyChangedPropsComponent', {
       renderCount: 2,
       changedProps: {
@@ -456,10 +435,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf(),
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestOnlyChangedPropsComponent', {
-      string: '1',
-      number: 1,
     });
     checkConsoleLog('TestOnlyChangedPropsComponent useEffect ran');
 
@@ -470,7 +445,6 @@ describe('useDebugInfo', () => {
       await user.click(screen.getByRole('button', { name: 'Increment All' }));
     });
 
-    checkConsoleLog('TestOnlyChangedPropsComponent', {});
     checkConsoleLog('TestOnlyChangedPropsComponent', {
       renderCount: 3,
       changedProps: {
@@ -479,10 +453,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf() + renderTime * 2,
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestOnlyChangedPropsComponent', {
-      string: '2',
-      number: 2,
     });
     checkConsoleLog('TestOnlyChangedPropsComponent useEffect ran');
 
@@ -493,7 +463,6 @@ describe('useDebugInfo', () => {
       await user.click(screen.getByRole('button', { name: 'Increment All' }));
     });
 
-    checkConsoleLog('TestOnlyChangedPropsComponent', {});
     checkConsoleLog('TestOnlyChangedPropsComponent', {
       renderCount: 4,
       changedProps: {
@@ -502,10 +471,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf() + renderTime * 4,
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestOnlyChangedPropsComponent', {
-      string: '3',
-      number: 3,
     });
     checkConsoleLog('TestOnlyChangedPropsComponent useEffect ran');
 
@@ -516,7 +481,6 @@ describe('useDebugInfo', () => {
       await user.click(screen.getByRole('button', { name: 'Increment All' }));
     });
 
-    checkConsoleLog('TestOnlyChangedPropsComponent', {});
     checkConsoleLog('TestOnlyChangedPropsComponent', {
       renderCount: 5,
       changedProps: {
@@ -525,10 +489,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf() + renderTime * 6,
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestOnlyChangedPropsComponent', {
-      string: '4',
-      number: 4,
     });
     checkConsoleLog('TestOnlyChangedPropsComponent useEffect ran');
 
@@ -583,7 +543,6 @@ describe('useDebugInfo', () => {
       );
     });
 
-    checkConsoleLog('TestPrimitivesComponent', {});
     checkConsoleLog('TestPrimitivesComponent', {
       renderCount: 2,
       changedProps: {
@@ -591,15 +550,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf(),
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestPrimitivesComponent', {
-      string: '1',
-      number: 0,
-      bigint: BigInt(0),
-      boolean: false,
-      symbol: initialSymbol,
-      nullVal: null,
-      // `undefinedVal` should not appear as a result of initial value being `undefined`
     });
     checkConsoleLog('TestPrimitivesComponent useEffect ran');
 
@@ -612,7 +562,6 @@ describe('useDebugInfo', () => {
       );
     });
 
-    checkConsoleLog('TestPrimitivesComponent', {});
     checkConsoleLog('TestPrimitivesComponent', {
       renderCount: 3,
       changedProps: {
@@ -620,15 +569,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf() + renderTime * 2,
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestPrimitivesComponent', {
-      string: '1',
-      number: 1,
-      bigint: BigInt(0),
-      boolean: false,
-      symbol: initialSymbol,
-      nullVal: null,
-      // `undefinedVal` should not appear as a result of initial value being `undefined`
     });
     checkConsoleLog('TestPrimitivesComponent useEffect ran');
 
@@ -641,7 +581,6 @@ describe('useDebugInfo', () => {
       );
     });
 
-    checkConsoleLog('TestPrimitivesComponent', {});
     checkConsoleLog('TestPrimitivesComponent', {
       renderCount: 4,
       changedProps: {
@@ -649,15 +588,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf() + renderTime * 4,
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestPrimitivesComponent', {
-      string: '1',
-      number: 1,
-      bigint: BigInt(1),
-      boolean: false,
-      symbol: initialSymbol,
-      nullVal: null,
-      // `undefinedVal` should not appear as a result of initial value being `undefined`
     });
     checkConsoleLog('TestPrimitivesComponent useEffect ran');
 
@@ -668,7 +598,6 @@ describe('useDebugInfo', () => {
       await user.click(screen.getByRole('button', { name: 'Toggle Boolean' }));
     });
 
-    checkConsoleLog('TestPrimitivesComponent', {});
     checkConsoleLog('TestPrimitivesComponent', {
       renderCount: 5,
       changedProps: {
@@ -676,15 +605,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf() + renderTime * 6,
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestPrimitivesComponent', {
-      string: '1',
-      number: 1,
-      bigint: BigInt(1),
-      boolean: true,
-      symbol: initialSymbol,
-      nullVal: null,
-      // `undefinedVal` should not appear as a result of initial value being `undefined`
     });
     checkConsoleLog('TestPrimitivesComponent useEffect ran');
 
@@ -695,7 +615,6 @@ describe('useDebugInfo', () => {
       await user.click(screen.getByRole('button', { name: 'Update Symbol' }));
     });
 
-    checkConsoleLog('TestPrimitivesComponent', {});
     checkConsoleLog('TestPrimitivesComponent', {
       renderCount: 6,
       changedProps: {
@@ -703,15 +622,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf() + renderTime * 8,
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestPrimitivesComponent', {
-      string: '1',
-      number: 1,
-      bigint: BigInt(1),
-      boolean: true,
-      symbol: updatedSymbol,
-      nullVal: null,
-      // `undefinedVal` should not appear as a result of initial value being `undefined`
     });
     checkConsoleLog('TestPrimitivesComponent useEffect ran');
 
@@ -774,7 +684,6 @@ describe('useDebugInfo', () => {
       );
     });
 
-    checkConsoleLog('TestFunctionComponent', {});
     checkConsoleLog('TestFunctionComponent', {
       renderCount: 2,
       changedProps: {
@@ -782,10 +691,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf(),
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestFunctionComponent', {
-      Function: rerenderedFunction,
-      MemoizedFunction: initialMemoizedFunction,
     });
     checkConsoleLog('TestFunctionComponent useEffect ran');
 
@@ -797,7 +702,6 @@ describe('useDebugInfo', () => {
       );
     });
 
-    checkConsoleLog('TestFunctionComponent', {});
     checkConsoleLog('TestFunctionComponent', {
       renderCount: 3,
       changedProps: {
@@ -809,10 +713,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf() + renderTime * 2,
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestFunctionComponent', {
-      Function: depsChangedFunction,
-      MemoizedFunction: depsChangedMemoizedFunction,
     });
     checkConsoleLog('TestFunctionComponent useEffect ran');
   });
@@ -845,7 +745,6 @@ describe('useDebugInfo', () => {
       await user.click(screen.getByRole('button', { name: 'Update Object' }));
     });
 
-    checkConsoleLog('TestObjectComponent', {});
     checkConsoleLog('TestObjectComponent', {
       renderCount: 2,
       changedProps: {
@@ -853,10 +752,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf(),
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestObjectComponent', {
-      object: updatedObject,
-      otherDep: 0,
     });
     checkConsoleLog('TestObjectComponent useEffect ran');
 
@@ -869,7 +764,6 @@ describe('useDebugInfo', () => {
       await user.click(screen.getByRole('button', { name: 'Update OtherDep' }));
     });
 
-    checkConsoleLog('TestObjectComponent', {});
     checkConsoleLog('TestObjectComponent', {
       renderCount: 3,
       changedProps: {
@@ -877,10 +771,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf() + renderTime * 2,
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestObjectComponent', {
-      object: updatedObject,
-      otherDep: 1,
     });
     checkConsoleLog('TestObjectComponent useEffect ran');
 
@@ -914,7 +804,6 @@ describe('useDebugInfo', () => {
       await user.click(screen.getByRole('button', { name: 'Update Date' }));
     });
 
-    checkConsoleLog('TestDateComponent', {});
     checkConsoleLog('TestDateComponent', {
       renderCount: 2,
       changedProps: {
@@ -922,10 +811,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf(),
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestDateComponent', {
-      date: updatedDate,
-      otherDep: 0,
     });
     checkConsoleLog('TestDateComponent useEffect ran');
 
@@ -936,7 +821,6 @@ describe('useDebugInfo', () => {
       await user.click(screen.getByRole('button', { name: 'Update OtherDep' }));
     });
 
-    checkConsoleLog('TestDateComponent', {});
     checkConsoleLog('TestDateComponent', {
       renderCount: 3,
       changedProps: {
@@ -944,10 +828,6 @@ describe('useDebugInfo', () => {
       },
       lastRenderTimestamp: date.valueOf() + renderTime * 2,
       timeSinceLastRender: renderTime * 2,
-    });
-    checkConsoleLog('TestDateComponent', {
-      date: updatedDate,
-      otherDep: 1,
     });
     checkConsoleLog('TestDateComponent useEffect ran');
 

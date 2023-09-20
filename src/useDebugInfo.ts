@@ -2,7 +2,6 @@ import { useRef, useEffect } from 'react';
 import useDebugPropChanges, { type ChangedProps } from './useDebugPropChanges';
 import useRenderCount from './useRenderCount';
 import isEmpty from 'lodash/isEmpty';
-import cloneDeep from 'lodash/cloneDeep';
 
 interface DebugInfo {
   renderCount: number;
@@ -20,6 +19,7 @@ const useDebugInfo = (
   const renderCount = useRenderCount();
   const changedProps = useDebugPropChanges(props);
   const lastRenderTimestamp = useRef<number>(Date.now());
+  const initialPropsRef = useRef(props);
 
   const info: DebugInfo = {
     renderCount,
@@ -38,12 +38,12 @@ const useDebugInfo = (
   });
 
   useEffect(() => {
-    console.log(`%c[debug-info] %c${componentDisplayName} Mounted`, 'color: orange', 'color: green', cloneDeep(props));
+    console.log(`%c[debug-info] %c${componentDisplayName} Mounted`, 'color: orange', 'color: green', initialPropsRef.current);
 
     return () => {
       console.log(`%c[debug-info] %c${componentDisplayName} Unmounted`, 'color: orange', 'color: pink');
     };
-  }, [ componentName, props ]);
+  }, [ componentName ]);
 };
 
 export default useDebugInfo;
