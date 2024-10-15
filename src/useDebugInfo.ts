@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import useDebugPropChanges, { type ChangedProps } from './useDebugPropChanges';
 import useRenderCount from './useRenderCount';
-import isEmpty from 'lodash/isEmpty';
+import { isEmpty } from 'lodash';
 
 interface DebugInfo {
   renderCount: number;
@@ -14,7 +14,7 @@ const useDebugInfo = (
   componentName: string,
   props: Readonly<Record<string, unknown>>,
   logOnlyWhenPropsChange?: boolean,
-) => {
+): void => {
   const componentDisplayName = `<${componentName} />`;
   const renderCount = useRenderCount();
   const changedProps = useDebugPropChanges(props);

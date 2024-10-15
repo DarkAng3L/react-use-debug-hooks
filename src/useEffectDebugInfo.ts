@@ -1,6 +1,6 @@
 import { useEffect, type EffectCallback, type DependencyList, useRef } from 'react';
 import useDebugDepsChanges, { type ChangedDeps } from './useDebugDepsChanges';
-import isEmpty from 'lodash/isEmpty';
+import { isEmpty } from 'lodash';
 
 interface DebugInfo {
   changedDeps: ChangedDeps;
@@ -12,7 +12,7 @@ const useEffectDebugInfo = (
   effectConsoleName: string,
   effect: EffectCallback,
   deps?: DependencyList,
-) => {
+): void => {
   const changedDeps = useDebugDepsChanges(deps);
   const lastRenderTimestamp = useRef<number>(Date.now());
 

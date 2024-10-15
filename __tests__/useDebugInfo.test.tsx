@@ -3,7 +3,7 @@ import { type ReactElement, useEffect, useCallback, useState } from 'react';
 // import { act, renderHook } from '@testing-library/react-hooks';
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import isEmpty from 'lodash/isEmpty';
+import { isEmpty } from 'lodash';
 
 import useDebugInfo from '../src/useDebugInfo';
 
@@ -781,7 +781,7 @@ describe('useDebugInfo', () => {
     const initialDate = new Date('2001-02-02T12:00:00');
     const updatedDate = new Date('2001-02-02T13:00:00');
 
-    const { user, checkConsoleLog, rerender } = renderWithSetup(
+    const { user, checkConsoleLog } = renderWithSetup(
       <TestDateComponent
         initialDate={initialDate}
         updatedDate={updatedDate}
